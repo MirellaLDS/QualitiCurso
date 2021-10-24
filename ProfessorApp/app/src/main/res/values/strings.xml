@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProfessorApp</string>
+    <string name="course_label">Curso</string>
+    <string name="professor_label">Professor</string>
+    <string name="allocation_label">Alocação</string>
+    <string name="departamento">Departamento</string>
+</resources>
