@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@android:drawable/arrow_down_float"
+        android:menuCategory="secondary"
+        android:title="@string/home_menu" />
+</menu>

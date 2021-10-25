@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.HomeFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="EasyCode"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/lvLinearLayoutCourse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/lvLinearLayoutCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_g"
+            android:background="@drawable/shape_category_background"
+            android:layout_margin="@dimen/size_g"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lvLinearLayoutDepartament"
+            app:layout_constraintBottom_toTopOf="@id/lvLinearLayoutProfessor">
+            <ImageView
+                android:id="@+id/ivActionIconCourse"
+                android:layout_width="96dp"
+                android:layout_height="73dp"
+                android:src="@drawable/curso"/>
+
+            <TextView
+                android:id="@+id/tvCategoryNameCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/size_m"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/course_label"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lvLinearLayoutDepartament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_g"
+            android:layout_marginVertical="@dimen/size_g"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:background="@drawable/shape_category_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/lvLinearLayoutCourse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lvLinearLayoutAllocation">
+            <ImageView
+                android:id="@+id/ivActionIconDepartament"
+                android:layout_width="96dp"
+                android:layout_height="73dp"
+                android:src="@drawable/departamento"/>
+
+            <TextView
+                android:id="@+id/tvCategoryNameDepartament"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/size_m"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/departamento"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lvLinearLayoutProfessor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_g"
+            android:background="@drawable/shape_category_background"
+            app:layout_constraintTop_toBottomOf="@id/lvLinearLayoutCourse"
+            app:layout_constraintStart_toStartOf="@id/lvLinearLayoutCourse"
+            app:layout_constraintEnd_toEndOf="@id/lvLinearLayoutCourse"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/ivActionIconProfessor"
+                android:layout_width="96dp"
+                android:layout_height="73dp"
+                android:src="@drawable/professor"/>
+
+            <TextView
+                android:id="@+id/tvCategoryNameProfessor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/size_m"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/professor_label"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lvLinearLayoutAllocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/size_g"
+            android:background="@drawable/shape_category_background"
+            app:layout_constraintTop_toBottomOf="@id/lvLinearLayoutDepartament"
+            app:layout_constraintStart_toStartOf="@id/lvLinearLayoutDepartament"
+            app:layout_constraintEnd_toEndOf="@id/lvLinearLayoutDepartament"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/ivActionIconAllocation"
+                android:layout_width="96dp"
+                android:layout_height="73dp"
+                android:src="@drawable/allocation"/>
+
+            <TextView
+                android:id="@+id/tvCategoryNameAllocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/size_m"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/allocation_label"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

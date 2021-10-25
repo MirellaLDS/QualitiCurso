@@ -1,4 +1,4 @@
-package com.example.professorapp
+package com.example.professorapp.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.lvLinearLayoutProfessor.setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 }
