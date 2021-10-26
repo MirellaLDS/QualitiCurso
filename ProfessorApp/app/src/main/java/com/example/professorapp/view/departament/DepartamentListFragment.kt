@@ -1,26 +1,23 @@
-package com.example.professorapp.view.curso
+package com.example.professorapp.view.departament
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.example.professorapp.config.RetrofitConfig
+import com.example.professorapp.R
 import com.example.professorapp.databinding.FragmentListagemBinding
 import com.example.professorapp.repository.model.UIState
-import com.example.professorapp.view.departament.DepartamentViewModel
+import com.example.professorapp.view.curso.CustomAdapter
 import com.example.professorapp.view.model.ListData
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
-import retrofit2.Retrofit
 
-class CursosListFragment : Fragment() {
+class DepartamentFragment : Fragment() {
 
-    private val viewModel: CursoViewModel by inject()
+    private val viewModelDepartment: DepartamentViewModel by inject()
     private lateinit var viewBinding: FragmentListagemBinding
     private lateinit var customAdapter: CustomAdapter
 
@@ -37,23 +34,14 @@ class CursosListFragment : Fragment() {
         customAdapter = CustomAdapter()
         viewBinding.rvListWords.adapter = customAdapter
 
+        viewModelDepartment.getAllDepartaments()
         setupRequestGetAll()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        if (findNavController().popBackStack()) {
-            findNavController().navigateUp()
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
     private fun setupRequestGetAll() {
-        viewModel.getAllCursos()
         lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect { state ->
-                when(state) {
+            viewModelDepartment.uiState.collect { state ->
+                when (state) {
                     is UIState.Success -> {
                         viewBinding.pbLoading.visibility = View.GONE
 
@@ -77,5 +65,4 @@ class CursosListFragment : Fragment() {
             }
         }
     }
-
 }

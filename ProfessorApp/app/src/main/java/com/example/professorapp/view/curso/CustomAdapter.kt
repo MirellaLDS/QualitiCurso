@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.professorapp.R
 import com.example.professorapp.databinding.ItemViewBinding
-import com.example.professorapp.repository.model.CourseModel
+import com.example.professorapp.view.model.ListData
 
-class CustomAdapter(private val dataSet: MutableList<CourseModel> = mutableListOf()) :
+class CustomAdapter(private val dataSet: MutableList<ListData> = mutableListOf()) :
     RecyclerView.Adapter<CustomAdapter.WordsViewHolder>() {
 
     inner class WordsViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -34,7 +34,7 @@ class CustomAdapter(private val dataSet: MutableList<CourseModel> = mutableListO
         return dataSet.size
     }
 
-    fun setData(data: List<CourseModel>) {
+    fun setData(data: List<ListData>) {
         dataSet.addAll(data)
         notifyDataSetChanged()
     }

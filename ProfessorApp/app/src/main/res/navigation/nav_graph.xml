@@ -12,11 +12,19 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_listagemFragment2"
-            app:destination="@id/listagemFragment2" />
+            app:destination="@id/listagemFragmentCourse" />
+        <action
+            android:id="@+id/action_homeFragment_to_listagemFragmentDepartment"
+            app:destination="@id/listagemFragmentDepartment" />
     </fragment>
     <fragment
-        android:id="@+id/listagemFragment2"
+        android:id="@+id/listagemFragmentCourse"
         android:name="com.example.professorapp.view.curso.CursosListFragment"
+        android:label="fragment_listagem"
+        tools:layout="@layout/fragment_listagem" />
+    <fragment
+        android:id="@+id/listagemFragmentDepartment"
+        android:name="com.example.professorapp.view.departament.DepartamentFragment"
         android:label="fragment_listagem"
         tools:layout="@layout/fragment_listagem" />
 </navigation>
