@@ -1,17 +1,15 @@
-package com.example.professorapp.view
+package com.example.professorapp.view.curso
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.professorapp.R
 import com.example.professorapp.databinding.ItemViewBinding
-import com.example.professorapp.model.Course
-import com.example.professorapp.model.CourseResponse
+import com.example.professorapp.repository.model.CourseModel
 
-class CustomAdapter(private val dataSet: MutableList<CourseResponse> = mutableListOf()) :
+class CustomAdapter(private val dataSet: MutableList<CourseModel> = mutableListOf()) :
     RecyclerView.Adapter<CustomAdapter.WordsViewHolder>() {
 
     inner class WordsViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -36,7 +34,7 @@ class CustomAdapter(private val dataSet: MutableList<CourseResponse> = mutableLi
         return dataSet.size
     }
 
-    fun setData(data: List<CourseResponse>) {
+    fun setData(data: List<CourseModel>) {
         dataSet.addAll(data)
         notifyDataSetChanged()
     }

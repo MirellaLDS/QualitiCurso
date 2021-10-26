@@ -1,9 +1,4 @@
-package com.example.professorapp.model
-
-open class Course(
-    open var id: String,
-    open var name: String
-)
+package com.example.professorapp.network.model
 
 data class CourseResponse(
     var id: String,
