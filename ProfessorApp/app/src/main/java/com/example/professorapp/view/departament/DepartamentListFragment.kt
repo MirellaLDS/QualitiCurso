@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import com.example.professorapp.R
 import com.example.professorapp.databinding.FragmentListagemBinding
 import com.example.professorapp.repository.model.UIState
-import com.example.professorapp.view.curso.CustomAdapter
-import com.example.professorapp.view.model.ListData
+import com.example.professorapp.commons.view.CustomAdapter
+import com.example.professorapp.commons.model.ListData
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 

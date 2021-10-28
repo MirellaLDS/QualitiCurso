@@ -1,4 +1,4 @@
-package com.example.professorapp.view.curso
+package com.example.professorapp.commons.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.professorapp.R
 import com.example.professorapp.databinding.ItemViewBinding
-import com.example.professorapp.view.model.ListData
+import com.example.professorapp.commons.model.ListData
 
 class CustomAdapter(private val dataSet: MutableList<ListData> = mutableListOf()) :
     RecyclerView.Adapter<CustomAdapter.WordsViewHolder>() {

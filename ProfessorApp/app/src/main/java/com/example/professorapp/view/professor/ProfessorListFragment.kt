@@ -1,4 +1,4 @@
-package com.example.professorapp.view.curso
+package com.example.professorapp.view.professor
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,12 +13,11 @@ import com.example.professorapp.databinding.FragmentListagemBinding
 import com.example.professorapp.repository.model.UIState
 import com.example.professorapp.commons.model.ListData
 import com.example.professorapp.commons.view.CustomAdapter
-import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
-class CursosListFragment : Fragment() {
+class ProfessorListFragment : Fragment() {
 
-    private val viewModel: CursoViewModel by inject()
+    private val viewModel: ProfessorViewModel by inject()
     private lateinit var viewBinding: FragmentListagemBinding
     private lateinit var customAdapter: CustomAdapter
 
@@ -48,7 +47,7 @@ class CursosListFragment : Fragment() {
     }
 
     private fun setupRequestGetAll() {
-        viewModel.getAllCursos()
+        viewModel.getAllProfessor()
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect { state ->
                 when(state) {
