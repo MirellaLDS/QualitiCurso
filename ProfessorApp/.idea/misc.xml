@@ -14,8 +14,13 @@
         <entry key="..\:/Projects/QualitiCurso/ProfessorApp/app/src/main/res/layout/fragment_listagem.xml" value="0.20572916666666666" />
         <entry key="..\:/Projects/QualitiCurso/ProfessorApp/app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/dialog_cad.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_cad_course.xml" value="0.14266304347826086" />
         <entry key="app/src/main/res/layout/fragment_departament.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_listagem.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/item_view.xml" value="0.1328125" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.2578125" />
       </map>
     </option>
   </component>

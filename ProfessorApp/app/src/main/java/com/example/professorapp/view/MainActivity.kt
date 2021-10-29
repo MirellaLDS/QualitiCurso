@@ -2,8 +2,10 @@ package com.example.professorapp.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.professorapp.R
 import com.example.professorapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(viewBinding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
+
 }

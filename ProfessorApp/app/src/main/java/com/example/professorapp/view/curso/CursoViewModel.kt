@@ -18,6 +18,9 @@ class CursoViewModel(private val dispatcher: CoroutineContext, private val netwo
     private val _getState = MutableStateFlow<UIState<List<CourseModel>>>(UIState.Loading)
     val uiState get() = _getState.asStateFlow()
 
+    private val _getStateInsert = MutableStateFlow<UIState<List<CourseModel>>>(UIState.Loading)
+    val uiStateInsert get() = _getStateInsert.asStateFlow()
+
     fun getAllCursos() {
         viewModelScope.launch(dispatcher) {
             network.getAllCourses().collect { state ->
@@ -35,6 +38,24 @@ class CursoViewModel(private val dispatcher: CoroutineContext, private val netwo
                 }
             }
         }
+    }
 
+    fun insert(value: String) {
+        viewModelScope.launch(dispatcher) {
+            network.insertCurso(value).collect { state ->
+                when(state) {
+                    is State.Success -> {
+                        _getStateInsert.emit(
+                            UIState.Success(state.data)
+                        )
+                    }
+                    is State.Error -> {
+                        _getStateInsert.emit(
+                            UIState.Error(" dasds")
+                        )
+                    }
+                }
+            }
+        }
     }
 }

@@ -31,6 +31,14 @@ class HomeFragment : Fragment() {
         viewBinding.lvLinearLayoutDepartament.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_listagemFragmentDepartment)
         }
+
+        viewBinding.lvLinearLayoutProfessor.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_listagemFragmentProfessor)
+        }
+
+        viewBinding.lvLinearLayoutAllocation.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_listagemFragmentAllocation)
+        }
     }
 
 }

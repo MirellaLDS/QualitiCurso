@@ -1,7 +1,7 @@
 package com.example.professorapp.repository.model
 
 open class Course(
-    open var id: String,
+    open var id: String = "",
     open var name: String
 )
 

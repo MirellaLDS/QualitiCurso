@@ -7,4 +7,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_menu">Home</string>
+    <string name="cad_menu">Cadastrar</string>
+    <string name="bt_cancel">Cancelar</string>
+    <string name="bt_cad">OK</string>
 </resources>

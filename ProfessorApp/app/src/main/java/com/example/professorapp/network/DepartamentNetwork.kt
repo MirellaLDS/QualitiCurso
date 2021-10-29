@@ -17,15 +17,7 @@ class DepartamentNetwork(private val service: DepartamentService) {
                     resp.body()?.map {
                         Departament(
                             it.id,
-                            it.name,
-                            it.professors.let { prof ->
-                                Professor(
-                                    prof.cpf,
-                                    prof.department,
-                                    prof.id,
-                                    prof.name
-                                )
-                            }
+                            it.name
                         )
                     } ?: emptyList()
                 )

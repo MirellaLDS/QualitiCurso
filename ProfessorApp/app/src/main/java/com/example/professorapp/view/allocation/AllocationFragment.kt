@@ -1,25 +1,26 @@
-package com.example.professorapp.view.professor
+package com.example.professorapp.view.allocation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
+import com.example.professorapp.R
 import com.example.professorapp.commons.model.ListData
-import com.example.professorapp.databinding.FragmentListagemBinding
 import com.example.professorapp.commons.view.CustomAdapter
+import com.example.professorapp.databinding.FragmentAllocationBinding
+import com.example.professorapp.databinding.FragmentListagemBinding
 import com.example.professorapp.repository.model.UIState
+import com.example.professorapp.view.curso.CursoViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
-class ProfessorListFragment : Fragment() {
+class AllocationFragment : Fragment() {
 
-    private val viewModel: ProfessorViewModel by inject()
+    private val viewModel: AllocationViewModel by inject()
     private lateinit var viewBinding: FragmentListagemBinding
     private lateinit var customAdapter: CustomAdapter
 
@@ -34,30 +35,30 @@ class ProfessorListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         customAdapter = CustomAdapter()
+
         viewBinding.rvListWords.adapter = customAdapter
 
-
-        viewModel.getAllProfessor()
-        setupRequestGetAll()
+        setupObserver()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        if (findNavController().popBackStack()) {
-            findNavController().navigateUp()
-        }
-
-        return super.onOptionsItemSelected(item)
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAll()
     }
 
-    private fun setupRequestGetAll() {
+    private fun setupObserver() {
         lifecycleScope.launchWhenCreated {
             viewModel.uiState.collect { state ->
-                when(state) {
+                when (state) {
                     is UIState.Success -> {
                         viewBinding.pbLoading.visibility = View.GONE
-
-                        val data = state.data.map { ListData(it.name) }
+                        val data = state.data.map {
+                            ListData(
+                                " ${it.dayOfWeek} - ${it.startHour} - ${it.endHour} ",
+                                " ${it.professor?.name} + ${it.course?.name} ",
+                                onItemClick = ::action
+                            )
+                        }
                         customAdapter.setData(data)
                     }
                     is UIState.Error -> {
@@ -76,6 +77,10 @@ class ProfessorListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    fun action(value: String) {
+        Toast.makeText(requireContext(), value, Toast.LENGTH_LONG).show()
     }
 
 }

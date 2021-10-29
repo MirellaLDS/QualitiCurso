@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_homeFragment_to_listagemFragmentDepartment"
             app:destination="@id/listagemFragmentDepartment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listagemFragmentProfessor"
+            app:destination="@id/listagemFragmentProfessor" />
+        <action
+            android:id="@+id/action_homeFragment_to_listagemFragmentAllocation"
+            app:destination="@id/listagemFragmentAllocation" />
     </fragment>
     <fragment
         android:id="@+id/listagemFragmentCourse"
@@ -25,6 +31,16 @@
     <fragment
         android:id="@+id/listagemFragmentDepartment"
         android:name="com.example.professorapp.view.departament.DepartamentFragment"
+        android:label="fragment_listagem"
+        tools:layout="@layout/fragment_listagem" />
+    <fragment
+        android:id="@+id/listagemFragmentProfessor"
+        android:name="com.example.professorapp.view.professor.ProfessorListFragment"
+        android:label="fragment_listagem"
+        tools:layout="@layout/fragment_listagem" />
+    <fragment
+        android:id="@+id/listagemFragmentAllocation"
+        android:name="com.example.professorapp.view.allocation.AllocationFragment"
         android:label="fragment_listagem"
         tools:layout="@layout/fragment_listagem" />
 </navigation>

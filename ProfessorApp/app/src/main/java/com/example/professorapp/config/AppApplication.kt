@@ -1,12 +1,16 @@
 package com.example.professorapp.config
 
 import android.app.Application
+import com.example.professorapp.network.AllocationNetwork
 import com.example.professorapp.network.CourseNetwork
 import com.example.professorapp.network.DepartamentNetwork
 import com.example.professorapp.network.ProfessorNetwork
+import com.example.professorapp.repository.model.Allocation
+import com.example.professorapp.service.AllocationService
 import com.example.professorapp.service.CourseService
 import com.example.professorapp.service.DepartamentService
 import com.example.professorapp.service.ProfessorService
+import com.example.professorapp.view.allocation.AllocationViewModel
 import com.example.professorapp.view.curso.CursoViewModel
 import com.example.professorapp.view.departament.DepartamentViewModel
 import com.example.professorapp.view.professor.ProfessorViewModel
@@ -28,12 +32,14 @@ class AppApplication : Application() {
             factory { CursoViewModel(dispatcher = Dispatchers.IO, network = get()) }
             factory { DepartamentViewModel(dispatcher = Dispatchers.IO, network = get()) }
             factory { ProfessorViewModel(dispatcher = Dispatchers.IO, network = get()) }
+            factory { AllocationViewModel(dispatcher = Dispatchers.IO, network = get()) }
         }
 
         val moduleNetwork = module {
             factory { CourseNetwork(get()) }
             factory { DepartamentNetwork(get()) }
             factory { ProfessorNetwork(get()) }
+            factory { AllocationNetwork(get()) }
         }
 
         val moduleConfig = module {
@@ -41,6 +47,7 @@ class AppApplication : Application() {
             factory { getCourseService(get()) }
             factory { getDepartamentService(get()) }
             factory { getProfessorService(get()) }
+            factory { getAllocationService(get()) }
         }
         startKoin(this, listOf(moduleViewModel, moduleNetwork, moduleConfig))
     }
@@ -55,6 +62,10 @@ class AppApplication : Application() {
 
     fun getProfessorService(retrofit: Retrofit): ProfessorService {
         return retrofit.create(ProfessorService::class.java)
+    }
+
+    fun getAllocationService(retrofit: Retrofit): AllocationService {
+        return retrofit.create(AllocationService::class.java)
     }
 
     fun providerRetrofit(): Retrofit {
